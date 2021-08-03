@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<div class="container">
+  <h1>Congratulations!!!</h1>
+  <h2>You're now logged in.</h2>
+  {% for q in questions_list %}
+      <h1>q.title</h1>
+      <h2>q.date_time</h2>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

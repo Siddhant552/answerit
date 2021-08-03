@@ -1,0 +1,29 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+<div class="container">
+  {% if not answer_list %}
+  <h1>No answers by you yet...</h1>
+  <a href="{% url 'Accounts:question_list' %}"><button class="btn btn-dark" name="button">Click here to answer some questions</button></a>
+
+  {% else %}
+  <ol>
+  {% for ans in answer_list %}
+
+    <h3><li>{{ans.question.question}}</li></h3>
+
+    <a href="{% url 'Accounts:question_detail' pk=ans.question.pk %}">  <button class="btn btn-dark" name="button">Total Answers: {{ans.question.answer_count.count}}</button></a>
+    <a href="{% url 'Accounts:edit_answer' pk=ans.pk %}"><button class="btn btn-dark" name="button">Edit this answer</button></a>
+
+    <a href="{% url 'Accounts:delete_answer' pk=ans.pk %}"><button class="btn btn-dark" name="button">Delete this answer</button></a>
+
+    <h4>Your answer: </h4>
+    <p>{{ans.answer|safe|linebreaksbr}}</p>
+<hr>
+  {% endfor %}
+  </ol>
+  {% endif %}
+</div>
+
+
+{% endblock %}

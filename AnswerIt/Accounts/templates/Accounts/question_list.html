@@ -1,0 +1,16 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+<div class="container">
+
+  {% for q in question_list %}
+      <h3>{{q.question}}</h3>
+      <p><strong>Asked by: </strong><a href="{% url 'Accounts:user_profile' pk=q.user.pk %}">{{q.user.username}}</a> on {{q.date_time}}</p>
+    <a href="{% url 'Accounts:question_detail' pk=q.pk %}">  <button class="btn btn-dark" name="button">Answers: {{q.answer_count.count}}</button></a>
+
+<hr>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

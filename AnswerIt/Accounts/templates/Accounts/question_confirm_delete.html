@@ -1,0 +1,11 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <p>Are you sure?</p>
+    <input type="submit" class="btn btn-dark" value="Confirm">
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+<div class="container">
+
+  {% if not question_list %}
+  <h1>No questions by you yet...</h1>
+  <a href="{% url 'Accounts:new_question' %}"><button class="btn btn-dark" name="button">Click here to post a question</button></a>
+
+  {% else %}
+  <ol>
+  {% for q in question_list %}
+
+    <h1><li>{{q.question|safe|linebreaksbr}}</li></h1>
+
+    <a href="{% url 'Accounts:question_detail' pk=q.pk %}">  <button class="btn btn-dark" name="button">Total Answers: {{q.answer_count.count}}</button></a>
+    <a href="{% url 'Accounts:edit_question' pk=q.pk %}"><button class="btn btn-dark" name="button">Edit this question</button></a>
+
+    <a href="{% url 'Accounts:delete_question' pk=q.pk %}"><button class="btn btn-dark" name="button">Delete this question</button></a>
+<hr>
+  {% endfor %}
+  </ol>
+  {% endif %}
+</div>
+
+
+{% endblock %}

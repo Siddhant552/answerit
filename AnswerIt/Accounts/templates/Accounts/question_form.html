@@ -1,0 +1,16 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+
+  <form method="post" style="padding:10px;">
+    {% csrf_token %}
+    <div class="container">
+  {{form.as_p}}
+  <button type="submit" class="btn btn-dark">Ask</button>
+
+    </div>
+
+  </form>
+
+
+{% endblock %}

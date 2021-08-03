@@ -1,0 +1,31 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+  {% if u.username == user.username %}
+
+  <u><h1 style="text-align:center">Your Profile</h1></u>
+  {% else %}
+  <u><h1 style="text-align:center">{{u.username}}'s Profile</h1></u>
+
+
+  {% endif %}
+
+  <hr>
+
+  <div class="container" style="margin: auto;width: 50%;border: 3px solid black;">
+      <h4>Username: {{u.username}}</h4>
+      <h4>Email: {{u.email}}</h4>
+      <h4>Name: {{u.info.name}}</h4>
+      <h4>Age: {{u.info.age}}</h4>
+      <h4>Qualifications: {{u.info.qualifications|safe|linebreaksbr}}</h4>
+      {% if u.username == user.username %}
+  <a href="{% url 'Accounts:edit_profile' pk=user.info.pk %}"><button type="button" class="btn btn-dark">Edit your Profile</button></a>
+  {% endif %}
+  </div>
+
+</div>
+
+
+{% endblock %}

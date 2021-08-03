@@ -1,0 +1,31 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+
+<h1>{{question.question|safe|linebreaksbr}}</h1>
+{% if question.user.username == user.username %}
+<a href="{% url 'Accounts:edit_question' pk=question.pk %}"><button class="btn btn-dark" name="button">Edit this question</button></a>
+
+<a href="{% url 'Accounts:delete_question' pk=question.pk %}"><button class="btn btn-dark" name="button">Delete this question</button></a>
+{% else %}
+<a href="{% url 'Accounts:new_answer' id=question.id question=question.question%}">  <button class="btn btn-dark" name="button">Answer this question</button></a>
+{% endif %}
+
+<hr style="height:2px;">
+
+{%if question.answer_count.count == 0 %}
+<h3>No answers for this question yet...</h3>
+
+{%else%}
+<h3>All Answers:</h3>
+
+{%for ans in question.answers.all %}
+
+<p>This answer was posted by <a href="{% url 'Accounts:user_profile' pk=ans.author.pk %}">{{ans.author.username}}</a> on {{ans.date_time}}</p>
+<h3><p>{{ans.answer|safe|linebreaksbr}}</p></h3>
+<hr>
+
+{%endfor%}
+
+{% endif %}
+{% endblock %}

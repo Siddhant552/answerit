@@ -1,0 +1,23 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+
+<h1>Help us grow by your valuable Feedback!</h1>
+<hr>
+
+<div class="container-fluid" style="margin: auto;width: 50%;">
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <br>
+    <br>
+
+      <button type="submit" class="btn btn-dark">Submit</button>
+
+  
+
+  </form>
+
+</div>
+
+{% endblock %}

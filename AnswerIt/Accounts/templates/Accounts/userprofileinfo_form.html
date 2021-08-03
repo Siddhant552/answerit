@@ -1,0 +1,20 @@
+{% extends "Accounts/base.html" %}
+{% load static %}
+{% block body %}
+
+<u><h1 style="text-align:center">Your Profile</h1></u>
+
+<hr>
+
+<div class="container" style="margin: auto;width: 50%;border: 3px solid black;">
+
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-dark">Save</button>
+  </form>
+</div>
+
+
+
+{% endblock %}

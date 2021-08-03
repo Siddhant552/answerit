@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <title>AnswerIt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="{% static "images/logo22.png" %}" type="image/icon type">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static "AnswerIt/CSS/footer.css" %}">
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+
+  </head>
+  <body>
+<div class="container-fluid">
+
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+
+
+          <a class ="navbar-brand"><img src="{% static "images/logo2.png" %}" alt="Logo" style="width:40px;"></a>
+       <a class="navbar-brand" href="#" style="font:normal 36px 'Cookie', cursive; color:#e0ac1c">AnswerIt</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#">Feedback</a>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <img src="{% static "images/Banner1.png" %}" width=100% alt="Banner">
+    </div>
+    <div class="container">
+      <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd;">
+
+         <div class = "container-fluid">
+          <form class="navbar-form" method="POST" action="{% url 'Accounts:user_login' %}">
+            {% csrf_token %}
+
+          <input type="username" placeholder="Enter Username" name = "username">
+          <input type="password" name="password" placeholder="Enter Password">
+          <input class="btn btn-light" type="submit" value = "Login">
+          <input class="btn btn-light" type="reset" value="Reset">
+        </form>
+        <div class="nav navbar-right">
+          <span class="navbar-text" style="color:white">
+                  Don't have an account?
+                </span>
+
+            <a class="nav-link" href="{% url 'Accounts:register' %}">SignUp Here</a>
+        </div>
+
+      </div>
+
+    </nav>
+  </div>
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="container bg-light">
+    <div class="clearfix">
+      <img src="{% static "images/debate3.jpg" %}" class="col-md-6 float-md-end mb-3 ms-md-3" alt="Blog Pic 2">
+      <p><strong>What Is Debate?</strong> <br>
+A debate is an organized argument or contest of ideas in which the participants discuss a topic from two opposing sides. Those who agree with this statement or idea are the "Pro" side.  Those who will not agree with this statement or idea are the "Con" side.  Each side will show in an organized and clever way why they believe to have the right answers.  They will use examples and evidence to support their ideas while working towards a conclusion.
+
+The aim of a debate is to convince the opposition that you are right. When the two sides agree on the subject or when one side's arguments are more convincing than the other side that is when the debate comes to a close. In a formal debate, a mediator (a person that has not agreed with the Pro or the Con) will decide who the winner should be. In an informal debate the argument can continue until the time when one side gives up :)</p>
+
+      <p>
+        Debate is a process that involves formal discussion on a particular topic. In a debate, opposing arguments are put forward to argue for opposing viewpoints. Debate occurs in public meetings, academic institutions, and legislative assemblies. It is a formal type of discussion, often with a moderator and an audience, in addition to the debate participants.
+
+Logical consistency, factual accuracy and some degree of emotional appeal to the audience are elements in debating, where one side often prevails over the other party by presenting a superior "context" or framework of the issue. In a formal debating contest, there are rules for participants to discuss and decide on differences, within a framework defining how they will do it.
+
+Debating is carried out in debating chambers and assemblies of various types to discuss matters and to make resolutions about action to be taken, often by voting. Deliberative bodies such as parliaments, legislative assemblies, and meetings of all sorts engage in debates. In particular, in parliamentary democracies a legislature debates and decides on new laws. Formal debates between candidates for elected office, such as the leaders debates, are sometimes held in democracies. Debating is also carried out for educational and recreational purposes, usually associated with educational establishments and debating societies. (Sources : <a href="https://www.americandebateleague.org/what-is-debate.html#/" target="_blank">Link 1</a> <a href="https://en.wikipedia.org/wiki/Debate" target="_blank">Link 2</a>)</p>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<footer class="footer-distributed" style="position:bottom">
+
+			<div class="footer-left">
+          <img src="{% static "images/logo2.png" %}">
+				<h3>About<span>AnswerIt</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="#">About</a>
+					|
+					<a href="#">Contact</a>
+				</p>
+			</div>
+
+			<div class="footer-center">
+        <div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>Noida, Sector - 278</span>
+						Uttar Pradesh - 209123</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+91 9876543210</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:abc@gmail.com">support@AnswerIt.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About us</span>
+					We offer a platform to our valuable users to express their opinions on any abstract topic and get to a conclusion.</p>
+				<div class="footer-icons">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-instagram"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-youtube"></i></a>
+				</div>
+			</div>
+		</footer>
+
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>
